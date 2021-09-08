@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>sentrybot_gazebo</name>
+  <version>0.0.1</version>
+  <description>The sentrybot_gazebo package</description>
+
+  <maintainer email="jenkin@eecs.yorku.ca">Michael Jenkin</maintainer>
+  <maintainer email="adnan500@my.yorku.ca">Adnan Fahad Faizi</maintainer>
+
+
+  <license>TODO</license>
+
+
+  <url type="website">http://vgr.lab.yorku.ca</url>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+
+
+  <export>
+    <gazebo_ros gazebo_model_path="${prefix}/.." /> <!-- enables package://sentrybot_gazebo/... -->
+  </export>
+</package>
+
+

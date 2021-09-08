@@ -1,0 +1,12 @@
+<launch>
+
+  <!--Robot Description from URDF-->
+  <param name= "robot_description" command= "$(find xacro)/xacro $(find sentrybot_description)/urdf/knightscope.urdf.xacro"/>
+  <node name="jsp" pkg="joint_state_publisher" type="joint_state_publisher"/>
+  <node pkg="rviz" type="rviz" name="rviz" required="true"/>
+	
+	<!--
+  <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find sentrybot_description)/rviz/sentrybot.rviz"/>
+	-->
+</launch>
+

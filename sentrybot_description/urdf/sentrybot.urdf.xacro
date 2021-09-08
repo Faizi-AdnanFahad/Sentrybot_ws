@@ -1,0 +1,470 @@
+<?xml version="1.0" ?>
+<robot name="eddy" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- All offsets are placeholder values ATM -->
+  <xacro:property name="sentrybot_mass" value="20.0" />
+  <xacro:property name="sentrybot_box_x" value="1.5" />
+  <xacro:property name="sentrybot_box_y" value="1.5" />
+  <xacro:property name="sentrybot_box_z" value="2.0" />
+  <xacro:property name="sentrybot_radius" value="0.33" />
+  <xacro:property name="sentrybot_height" value="1.5" />
+  <xacro:property name="sentrybot_mesh_offset" value="0.4" />
+
+  <xacro:property name="PI" value="3.14159" />
+
+  <xacro:property name="alum_ext_horizontal_length" value="0.035" />
+  <xacro:property name="alum_ext_vertical_length" value="0.4256" />
+  <xacro:property name="alum_ext_SlopeBar_length" value="0.22" />
+  <xacro:property name="alum_ext_general_dim" value="0.02" />
+
+  <xacro:property name="screen_height" value="0.3556" />
+  <xacro:property name="screen_width" value="0.22" />
+  <xacro:property name="screen_thick" value="0.01" />
+
+  <xacro:property name="ellipse_length" value="0.04" />
+  <xacro:property name="ellipse_radius" value="0.0324" />
+
+  <xacro:property name="laser_dim" value="0.05" />
+  <xacro:property name="laser_ground_ele" value="0.011" />
+  <xacro:property name="imu_dim" value="0.05" />
+
+  <xacro:property name="PTU_base_length" value="0.035" />
+  <xacro:property name="PTU_base_width" value="0.02" />
+  <xacro:property name="PTU_vertical_length" value="0.045" />
+  <xacro:property name="PTU_vertical_width" value="0.02" />
+  <xacro:property name="PTU_base_heigth" value="0.001" />
+
+  <xacro:property name="PTU_PAN_length" value="0.045" />
+  <xacro:property name="PTU_PAN_width" value="0.03" />
+
+  <xacro:property name="TILT_length" value="0.03" />
+  <xacro:property name="TILT_width" value="0.015" />
+  <xacro:property name="TILT_heigth" value="0.001" />
+
+  <xacro:property name="TILT_upper_length" value="0.15" />
+  <xacro:property name="TILT_upper_width" value="0.05" />
+  <xacro:property name="TILT_upper_heigth" value="0.025" />
+
+  <xacro:property name="camera_length" value="0.08" />
+  <xacro:property name="camera_width" value="0.02" />
+  <xacro:property name="camera_heigth" value="0.02" />
+
+  <xacro:property name="microphone_bar_length" value="0.03" />
+  <xacro:property name="microphone_bar_dim" value="0.01" />
+
+
+  <xacro:macro name="I_cuboid" params="m x y z">
+    <inertial>
+      <mass value="${m}" />
+      <inertia  ixx="${m*(y*y+z*z)/12}" iyy="${m*(x*x+z*z)/12}" izz="${m*(x*x+z*z)/12}"
+                ixy = "0" ixz = "0" iyz = "0" />
+    </inertial>
+  </xacro:macro>
+
+  <xacro:macro name="default_inertial" params="mass">
+    <inertial>
+      <mass value="${mass}"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </xacro:macro>
+
+
+  <xacro:include filename="$(find sentrybot_gazebo)/urdf/sentrybot.gazebo.xarco"/>
+
+  <link name="base_footprint">
+    <!--
+    <visual>
+      <origin xyz="0 0 ${sentrybot_height/2}" rpy="0 0 0"/>
+      <geometry>
+       <cylinder radius="${sentrybot_radius}" length="${sentrybot_height}" />
+      </geometry>
+    </visual>
+    -->
+  </link>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0.0 0.0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 ${sentrybot_mesh_offset}" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://sentrybot_description/meshes/bishop.stl" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 ${sentrybot_height/2}" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="${sentrybot_radius}" length="${sentrybot_height}" />
+      </geometry>
+    </collision>
+    <xacro:I_cuboid m="${sentrybot_mass}" x="${sentrybot_box_x}" y="${sentrybot_box_y}" z="${sentrybot_box_z}" />
+  </link>
+
+  <!-- Aluminum bar HORIZONTAL -->
+  <joint name="joint_base_to_horizontal_alum" type="fixed">
+    <parent link="base_link"/>
+    <child link="link_horizontal_alum"/>
+    <origin xyz="${sentrybot_radius-0.11} 0 ${sentrybot_height-0.23}" rpy="0 0 0"/>
+  </joint>
+
+  <link name="link_horizontal_alum">
+    <visual>
+      <geometry>
+        <box size="${alum_ext_horizontal_length} ${alum_ext_general_dim} ${alum_ext_general_dim}"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Aluminum bar VERTICAL -->
+  <joint name="joint_horizontal_to_vertical_alum" type="fixed">
+    <parent link="link_horizontal_alum"/>
+    <child link="link_vertical_alum"/>
+    <origin xyz="${alum_ext_horizontal_length-0.007} 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="link_vertical_alum">
+    <visual>
+      <geometry>
+        <box size="${alum_ext_general_dim} ${alum_ext_general_dim} ${alum_ext_vertical_length}"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Aluminum bar with angle -->
+  <joint name="joint_base_to_slopBar_alum" type="fixed">
+    <parent link="base_link"/>
+    <child link="link_slopeBar_alum"/>
+    <origin xyz="${(sentrybot_radius/2)} 0 ${sentrybot_height-0.35}" rpy="0 -0.523599 0"/>
+  </joint>
+
+  <link name="link_slopeBar_alum">
+    <visual>
+      <geometry>
+        <box size="${alum_ext_SlopeBar_length} ${alum_ext_general_dim} ${alum_ext_general_dim}"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Screen Unit -->
+  <joint name="base_to_screen" type="fixed">
+    <parent link="link_vertical_alum"/>
+    <child link="link_screen"/>
+    <origin xyz="${alum_ext_general_dim} 0.0 0.035" rpy="1.57075 0.0 1.57075"/>
+  </joint>
+
+  <gazebo reference="link_screen">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <link name="link_screen">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${screen_width} ${screen_height} ${screen_thick}" />
+      </geometry>
+    </visual>
+    <xacro:default_inertial mass="0.7"/>
+  </link>
+
+  <!-- Upper Ellipse Unit -->
+  <joint name="joint_screen_to_ellipse_upper" type="fixed">
+    <parent link="link_screen"/>
+    <child link="link_ellipse_upper"/>
+    <origin xyz="0.0 ${-((-screen_height/2)-(ellipse_length/2))} 0.0" rpy="0.0 -1.57075 -1.57075"/>
+  </joint>
+
+  <link name="link_ellipse_upper">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.57075 0"/>
+      <geometry>
+        <cylinder length="${ellipse_length}" radius="${ellipse_radius}"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Lower Ellipse Unit -->
+  <joint name="joint_screen_to_ellipse_lower" type="fixed">
+    <parent link="link_screen"/>
+    <child link="link_ellipse_lower"/>
+    <origin xyz="0.0 ${-((screen_height/2)+(ellipse_length/2))} 0.0" rpy="0.0 1.57075 0.0"/>
+  </joint>
+
+  <link name="link_ellipse_lower">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.57075 0"/>
+      <geometry>
+        <cylinder length="${ellipse_length}" radius="${ellipse_radius}"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- PTU_BASE_BOTTOM-->
+  <joint name="joint_top_ellipse_to_PTU_base_bottom" type="fixed">
+    <parent link="link_ellipse_upper"/>
+    <child link="PTU_base_bottom"/>
+    <origin xyz="0.0 0.0 ${ellipse_radius+PTU_base_heigth}" rpy="0 0 0"/>
+  </joint>
+
+  <gazebo reference="PTU_base_bottom">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <link name="PTU_base_bottom">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${PTU_base_length} ${PTU_base_width} ${PTU_base_heigth}"/>
+      </geometry>
+    </visual>
+    <xacro:default_inertial mass="0.0000001"/>
+  </link>
+
+  <!-- PTU_Vertical-->
+  <joint name="joint_PTU_base_PTU_base_vertical" type="fixed">
+    <parent link="PTU_base_bottom"/>
+    <child link="PTU_base_vertical"/>
+    <origin xyz="${(-PTU_base_length/2)+(PTU_base_heigth/2)} 0.0 ${PTU_vertical_length/2}" rpy="0 0 0"/>
+  </joint>
+
+  <gazebo reference="PTU_base_vertical">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <link name="PTU_base_vertical">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${PTU_base_heigth} ${PTU_base_width} ${PTU_vertical_length}"/>
+      </geometry>
+    </visual>
+    <xacro:default_inertial mass="0.0000001"/>
+  </link>
+
+  <!-- PTU_BASE_upper-->
+  <joint name="joint_top_ellipse_to_PTU_base_upper" type="fixed">
+    <parent link="PTU_base_vertical"/>
+    <child link="PTU_base_upper"/>
+    <origin xyz="${PTU_base_length/2 - (PTU_base_heigth/2)} 0.0 ${PTU_vertical_length/2}" rpy="0 0 0"/>
+  </joint>
+
+  <gazebo reference="PTU_base_upper">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <link name="PTU_base_upper">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${PTU_base_length} ${PTU_base_width} ${PTU_base_heigth}"/>
+      </geometry>
+    </visual>
+    <xacro:default_inertial mass="0.0000001"/>
+  </link>
+
+  <!-- link_PTU_PAN-->
+  <joint name="joint_PTU_base_bottom_to_PTU_PAN" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="${-PI/2}" upper="${PI/2}" velocity="2.5"/>
+    <parent link="PTU_base_bottom"/>
+    <child link="PTU_PAN"/>
+    <origin xyz="${(5*PTU_PAN_length)/8} 0.0 ${(PTU_vertical_length)/2}" rpy="0 0 0"/>
+  </joint>
+
+  <gazebo reference="PTU_PAN">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <link name="PTU_PAN">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${PTU_PAN_length} ${PTU_PAN_width}  ${PTU_vertical_length-PTU_base_heigth}"/>
+      </geometry>
+    </visual>
+    <xacro:default_inertial mass="0.000001"/>
+  </link>
+
+  <!-- link_TILT_RIGHT_SIDE-->
+  <joint name="joint_TILT_Rside_to_PTU_PAN" type="revolute">
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" lower="${-PI/2}" upper="${PI/2}" velocity="2.5"/>
+    <parent link="PTU_PAN"/>
+    <child link="TILT_R_side"/>
+    <origin xyz="${0.75*PTU_PAN_length} ${PTU_PAN_width/2} 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="TILT_R_side">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${TILT_length} ${TILT_heigth}  ${TILT_width}"/>
+      </geometry>
+    </visual>
+    <xacro:default_inertial mass="0.000001"/>
+  </link>
+
+  <!-- link_TILT_LEFT_SIDE-->
+  <joint name="joint_TILT_Lside_to_PTU_PAN" type="revolute">
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" lower="${-PI/2}" upper="${PI/2}" velocity="2.5"/>
+    <parent link="PTU_PAN"/>
+    <child link="TILT_L_side"/>
+    <origin xyz="${0.75*PTU_PAN_length} ${-(PTU_PAN_width/2)} 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="TILT_L_side">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${TILT_length} ${TILT_heigth}  ${TILT_width}"/>
+      </geometry>
+    </visual>
+    <xacro:default_inertial mass="0.0000001"/>
+  </link>
+
+  <!-- link_TILT_UPPER-->
+  <joint name="joint_TILT_UPPER_to_TILT_SIDES" type="fixed">
+    <parent link="TILT_L_side"/>
+    <child link="TILT_UPPER"/>
+    <origin xyz="${TILT_length} 0 0" rpy="0 1.0472 0"/>
+  </joint>
+
+  <gazebo reference="PTU_PAN">
+    <material>Gazebo/White</material>
+  </gazebo>
+  <link name="TILT_UPPER">
+    <visual>
+      <geometry>
+        <box size="${TILT_upper_heigth} ${TILT_upper_length}  ${TILT_upper_width}"/>
+      </geometry>
+    </visual>
+    <xacro:default_inertial mass="0.000001"/>
+  </link>
+
+  <!-- Camera Unit -->
+  <joint name="joint_PTU_camera_to_TILT_UPPER" type="fixed">
+    <parent link="TILT_UPPER"/>
+    <child link="PTU_camera"/>
+    <origin xyz="0 0 ${TILT_upper_length/4}" rpy="0 0 0"/>
+  </joint>
+
+  <gazebo reference="PTU_camera">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <link name="PTU_camera">
+    <visual>
+      <geometry>
+        <box size="${camera_width} ${camera_length} ${camera_heigth}" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="${camera_width} ${camera_length} ${camera_heigth}" />
+      </geometry>
+    </collision>
+    <xacro:I_cuboid m="0.000005" x="${camera_length}" y="${camera_width}" z="${camera_heigth}"/>
+  </link>
+
+  <!-- Microphone bar Unit -->
+  <joint name="joint_alum_vertcal_to_micro" type="fixed">
+    <parent link="link_vertical_alum"/>
+    <child link="link_microphone"/>
+    <origin xyz="0 ${PTU_vertical_width} ${-alum_ext_vertical_length/2}" rpy="0 0 0"/>
+  </joint>
+
+  <gazebo reference="link_microphone">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <link name="link_microphone">
+    <visual>
+      <geometry>
+        <box size="${microphone_bar_dim} ${microphone_bar_length} ${microphone_bar_dim}" />
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Microphone base_bar Unit -->
+  <joint name="joint_microphone_bar_to_base_bar" type="fixed">
+    <parent link="link_microphone"/>
+    <child link="link_microphone_base_bar"/>
+    <origin xyz="${0.02} ${microphone_bar_length} 0" rpy="0 -1.5708 0"/>
+  </joint>
+
+  <gazebo reference="link_microphone_base_bar">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <link name="link_microphone_base_bar">
+    <visual>
+      <geometry>
+        <cylinder length="0.04" radius="0.009"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Microphone Unit -->
+  <joint name="joint_microphone_basae_bar_to_microphone" type="fixed">
+    <parent link="link_microphone_base_bar"/>
+    <child link="link_micro"/>
+    <origin xyz="0 0 -0.04" rpy="0 0 0"/>
+  </joint>
+
+  <gazebo reference="link_micro">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <link name="link_micro">
+    <visual>
+      <geometry>
+        <cylinder length="0.07" radius="0.02"/>
+      </geometry>
+    </visual>
+  </link>
+
+
+  <!-- Laser Unit -->
+  <joint name="laser_to_based" type="fixed">
+    <axis xyz="0 0 1" />
+    <parent link="base_link"/>
+    <child link="link_laser"/>
+    <origin xyz="${sentrybot_radius} 0.0 ${laser_ground_ele}" rpy="0 0 0"/>
+  </joint>
+
+  <gazebo reference="link_laser">
+    <material>Gazebo/Green</material>
+  </gazebo>
+  <link name="link_laser">
+    <visual>
+      <geometry>
+        <box size="${laser_dim} ${laser_dim} ${laser_dim}" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="${laser_dim} ${laser_dim} ${laser_dim}" />
+      </geometry>
+    </collision>
+    <xacro:I_cuboid m="0.000001" x="${laser_dim}" y="${laser_dim}" z="${laser_dim}"/>
+  </link>
+
+
+  <!-- IMU Unit-->
+  <joint name="imu_to_based" type="fixed">
+    <parent link="base_link"/>
+    <child link="link_imu"/>
+    <origin xyz="0.0 0.0 ${sentrybot_height/2}" rpy="0 0 0"/>
+  </joint>
+
+  <link name="link_imu">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${imu_dim} ${imu_dim} ${imu_dim}" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="${imu_dim} ${imu_dim} ${imu_dim}" />
+      </geometry>
+    </collision>
+  </link>
+
+</robot>

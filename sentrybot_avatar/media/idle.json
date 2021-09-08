@@ -1,0 +1,16 @@
+{
+  "nodes" : [ "t1", "t11", "t19", "t25", "t31" ],
+  "edges" : [
+    {"start" : "t1", "end": "t11", "length": 1, "video" : "v1-10.mp4"},
+    {"start" : "t1", "end": "t11", "length": 1, "video" : "x1-10.mp4"},
+    {"start" : "t11", "end": "t19", "length": 1, "video" : "v11-18.mp4"},
+    {"start" : "t11", "end": "t19", "length": 1, "video" : "x11-18.mp4"},
+    {"start" : "t19", "end": "t25", "length": 1, "video" : "v19-24.mp4"},
+    {"start" : "t19", "end": "t25", "length": 1, "video" : "x19-24.mp4"},
+    {"start" : "t25", "end": "t31", "length": 1, "video" : "v25-30.mp4"},
+    {"start" : "t25", "end": "t31", "length": 1, "video" : "x25-30.mp4"},
+    {"start" : "t31", "end": "t1", "length": 1, "video" : "v31-46.mp4"},
+    {"start" : "t31", "end": "t1", "length": 1, "video" : "x31-46.mp4"}
+   ]
+
+}

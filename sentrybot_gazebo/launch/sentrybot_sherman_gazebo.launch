@@ -1,0 +1,93 @@
+<launch>
+
+  <!--Robot Description from URDF-->
+  <param name= "robot_description" command= "$(find xacro)/xacro $(find sentrybot_description)/urdf/sentrybot.urdf.xacro"/>
+
+  <node name="rsp" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+
+  <!-- launching video stream -->
+  <!--
+   <group ns="sentrybot">
+   <include file="$(find sentrybot_gazebo)/launch/camera.launch" >
+        <arg name="camera_name" value="videofile" />
+        <arg name="video_stream_provider" value="$(find sentrybot_description)/meshes/screen/sad.mp4" />
+        <arg name="buffer_queue_size" value="1000" />
+        <arg name="fps" value="30" />
+        <arg name="frame_id" value="videofile_frame" />
+        <arg name="camera_info_url" value="" />
+        <arg name="flip_horizontal" value="false" />
+        <arg name="flip_vertical" value="false" />
+        <arg name="loop_videofile" value="true" />
+        <arg name="start_frame" default="0"/>
+        <arg name="stop_frame" default="-1"/>
+        <arg name="visualize" value="true" />
+   </include>
+   </group>
+ -->
+<!--  -->
+  <!-- Run the EKF Localization node -->
+
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+    <rosparam command="load" file="$(find sentrybot_gazebo)/config/sentrybot_ekf_localization.yaml"/>
+  </node>
+
+
+  <!-- Node for publishing a picture into the monitor -->
+  <!--
+  <group ns="sentrybot">
+  <node pkg="image_publisher" type="image_publisher" name="image_publisher"
+        args="$(find sentrybot_description)/meshes/screen/car.jpg" >
+    <param name="flip_horizontal" value="false" />
+    <param name="flip_vertical" value="false" />
+    <param name="frame_id" value="my_camera" />
+    <param name="publish_rate" value="1" />
+    <param name="camera_info_url" value="file:///$(env HOME)/.ros/camera_info/camera.yaml" />
+    --> <!-- relative to ~/.ros/ -->
+    <!--
+  </node>
+  </group>
+  -->
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find sentrybot_gazebo)/worlds/sherman_world.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="recording" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+
+  <!-- Robot pose -->
+  <!--
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="0"/>
+    <arg name="roll" default="0"/>
+    <arg name="pitch" default="0"/>
+    <arg name="yaw" default="0"/>
+  -->
+
+  <!-- <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model sentrybot -x $(arg x) -y $(arg y) -z $(arg z)
+  -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)" output="screen"/> -->
+
+  <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model sentrybot" output="screen"/>
+
+  <!-- Move base -->
+  <!-- For giving goals and navigation -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find sentrybot_description)/config_sentrybot/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find sentrybot_description)/config_sentrybot/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find sentrybot_description)/config_sentrybot/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find sentrybot_description)/config_sentrybot/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find sentrybot_description)/config_sentrybot/base_local_planner_params.yaml" command="load" />
+
+    <remap from="cmd_vel" to="/sentrybot/cmd_vel"/>
+    <remap from="/sentrybot/odom" to="/odometry/filtered"/>
+    <!-- <remap from="odom" to="/sentrybot/odom"/> -->
+    <remap from="scan" to="/sentrybot/front_laser"/>
+    <param name="move_base/DWAPlannerROS/yaw_goal_tolerance" value="1.0"/>
+    <param name="move_base/DWAPlannerROS/xy_goal_tolerance" value="1.0"/>
+  </node>
+
+</launch>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>sentrybot_description</name>
+  <version>0.0.0</version>
+  <description>URDF description of the Sentrybot Robot</description>
+
+  <maintainer email="jenkin@eecs.yorku.ca">Michael Jenkin</maintainer>
+  <maintainer email="adnan500@my.yorku.ca">Adnan Fahad Faizi</maintainer>
+
+
+  <license>TODO</license>
+
+
+  <url type="website">http://vgr.lab.yorku.ca</url>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>urdf</build_depend>
+  <build_depend>xacro</build_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <build_export_depend>urdf</build_export_depend>
+  <build_export_depend>xacro</build_export_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>urdf</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+
+  <export>
+    <gazebo_ros gazebo_model_path="${prefix}/.." /> <!-- enables package://eddy_description/... -->
+
+  </export>
+</package>

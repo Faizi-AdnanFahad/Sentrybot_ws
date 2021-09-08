@@ -1,0 +1,633 @@
+Language model created by QuickLM on Tue Aug 24 23:14:59 EDT 2021
+Carnegie Mellon University (c) 1996
+
+This model based on a corpus of 37 sentences and 422 words
+The (fixed) discount mass is 0.5
+
+\data\
+ngram 1=120
+ngram 2=230
+ngram 3=264
+
+\1-grams:
+-2.9263 10 -0.3005
+-1.3581 </s> -0.3010
+-1.3581 <s> -0.2767
+-2.4492 BEST -0.2943
+-2.6253 Can -0.2922
+-2.9263 Could -0.2922
+-2.9263 Dean, -0.2932
+-2.6253 Do -0.2922
+-2.9263 Does -0.3000
+-2.9263 Excuse -0.3005
+-2.4492 Good -0.2995
+-2.9263 How -0.2932
+-1.6041 I -0.2842
+-2.9263 I'm -0.3005
+-2.9263 Is -0.2995
+-2.9263 It -0.2964
+-2.9263 Lab? -0.2816
+-2.9263 May -0.2901
+-2.9263 Registrar's -0.2953
+-2.9263 Sorry, -0.2984
+-2.9263 Take -0.2943
+-2.6253 What -0.2948
+-2.9263 What’s -0.2880
+-2.1482 Where -0.2885
+-2.4492 a -0.2995
+-2.9263 able -0.2869
+-2.9263 about -0.2880
+-2.9263 academic -0.3005
+-2.4492 advising -0.2948
+-2.9263 advisor, -0.2979
+-2.9263 afternoon -0.2816
+-2.6253 an -0.3000
+-2.9263 and -0.2901
+-2.9263 appointment -0.2990
+-2.9263 ask -0.2979
+-2.9263 been -0.2995
+-2.9263 best -0.2995
+-2.9263 building, -0.2932
+-2.9263 buy -0.3000
+-2.9263 cafateria -0.2816
+-2.9263 cafeteria -0.3000
+-1.7503 can -0.2810
+-2.9263 can’t -0.2979
+-2.9263 car -0.2816
+-2.2274 dean's -0.2943
+-2.4492 do -0.2922
+-2.9263 does -0.3005
+-2.9263 eat -0.2990
+-2.9263 elevator -0.2816
+-2.9263 elevators -0.2816
+-2.9263 evening -0.2816
+-2.1482 find -0.2799
+-2.6253 first -0.2995
+-2.9263 floor -0.2816
+-2.9263 floor, -0.2932
+-2.6253 food -0.2816
+-2.1482 for -0.2810
+-2.4492 get -0.2853
+-2.1482 go -0.2853
+-2.9263 going -0.2869
+-2.9263 good -0.3005
+-2.6253 guide -0.2943
+-2.4492 have -0.2979
+-1.9721 help -0.2723
+-2.6253 here -0.2810
+-2.9263 how -0.2869
+-2.9263 in -0.3000
+-1.9721 is -0.2640
+-2.9263 is? -0.2816
+-2.2274 it -0.2761
+-2.1482 know -0.2974
+-2.9263 leads -0.2869
+-2.9263 like -0.2869
+-2.4492 looking -0.2979
+-2.9263 lost, -0.2932
+-1.8124 me -0.2606
+-2.9263 me, -0.2901
+-2.9263 meeting -0.2990
+-2.9263 minutes, -0.2995
+-2.9263 more -0.3005
+-2.9263 morning -0.2816
+-2.3243 my -0.2984
+-2.4492 need -0.2821
+-1.8849 office -0.2629
+-2.6253 office, -0.2932
+-2.9263 one -0.2816
+-2.9263 open? -0.2816
+-2.9263 park -0.2990
+-2.9263 past -0.3005
+-2.9263 place -0.2869
+-2.9263 program -0.2932
+-2.9263 quickest -0.2995
+-2.9263 registrar's -0.3000
+-2.9263 registration -0.2816
+-2.4492 room -0.2810
+-2.9263 second -0.3005
+-2.4492 seminar -0.2995
+-2.9263 sit -0.2869
+-2.6253 some -0.2953
+-2.9263 support -0.2816
+-2.3243 take -0.2943
+-2.9263 talk -0.2869
+-2.9263 tell -0.2943
+-1.5284 the -0.2816
+-2.4492 there -0.2799
+-2.9263 there? -0.2816
+-2.6253 this -0.2990
+-2.4492 time -0.2990
+-1.4950 to -0.2707
+-2.6253 undergraduate -0.2953
+-2.9263 upper -0.3005
+-2.4492 wanted -0.2869
+-2.6253 was -0.2995
+-2.4492 washroom -0.2767
+-2.9263 wasn't -0.3005
+-2.4492 way -0.2864
+-2.1482 where -0.2772
+-2.3243 with -0.2869
+-2.9263 would -0.3005
+-1.6959 you -0.2896
+
+\2-grams:
+-0.3010 10 minutes, 0.0000
+-1.5682 <s> Can 0.0000
+-1.8692 <s> Could 0.0000
+-1.5682 <s> Do 0.0000
+-1.8692 <s> Does 0.0000
+-1.8692 <s> Excuse 0.0000
+-1.3921 <s> Good 0.0000
+-0.7901 <s> I -0.1402
+-1.8692 <s> I'm 0.0000
+-1.8692 <s> Is 0.0000
+-1.8692 <s> It 0.0000
+-1.8692 <s> May 0.0000
+-1.8692 <s> Sorry, 0.0000
+-1.8692 <s> Take 0.0000
+-1.5682 <s> What 0.0000
+-1.8692 <s> What’s 0.0000
+-1.0911 <s> Where 0.0000
+-0.7782 BEST Lab? 0.0000
+-0.7782 BEST office -0.2374
+-0.7782 BEST program 0.0000
+-0.3010 Can you -0.2167
+-0.3010 Could you -0.2881
+-0.3010 Dean, can -0.1461
+-0.3010 Do you -0.2319
+-0.3010 Does this -0.1761
+-0.3010 Excuse me, 0.0000
+-0.7782 Good afternoon 0.0000
+-0.7782 Good evening 0.0000
+-0.7782 Good morning 0.0000
+-0.3010 How can -0.2041
+-1.6232 I ask 0.0000
+-1.6232 I can’t 0.0000
+-1.3222 I find -0.2218
+-1.6232 I get -0.2218
+-1.6232 I go -0.2632
+-1.1461 I have 0.0000
+-1.1461 I need 0.0000
+-1.6232 I park 0.0000
+-1.6232 I sit 0.0000
+-1.1461 I wanted 0.0000
+-1.3222 I was 0.0000
+-1.6232 I wasn't 0.0000
+-1.6232 I would 0.0000
+-0.3010 I'm lost, 0.0000
+-0.3010 Is there -0.2218
+-0.3010 It is -0.2499
+-0.3010 Lab? </s> -0.3010
+-0.3010 May I -0.2906
+-0.3010 Registrar's office -0.2808
+-0.3010 Sorry, it -0.1461
+-0.3010 Take me -0.2083
+-0.6021 What is -0.2499
+-0.6021 What time -0.2218
+-0.3010 What’s the -0.2923
+-0.4771 Where can -0.2041
+-0.7782 Where is -0.2218
+-0.7782 a cafeteria 0.0000
+-0.7782 a good 0.0000
+-0.7782 a meeting 0.0000
+-0.3010 able to -0.2929
+-0.3010 about the -0.2742
+-0.3010 academic advisor, 0.0000
+-0.4771 advising office -0.1891
+-0.7782 advising support 0.0000
+-0.3010 advisor, where -0.2632
+-0.3010 afternoon </s> -0.3010
+-0.6021 an academic 0.0000
+-0.6021 an appointment 0.0000
+-0.3010 and I -0.2688
+-0.3010 appointment with -0.1761
+-0.3010 ask for -0.2632
+-0.3010 been looking 0.0000
+-0.3010 best way -0.1249
+-0.3010 building, can -0.1461
+-0.3010 buy some -0.1761
+-0.3010 cafateria </s> -0.3010
+-0.3010 cafeteria here -0.1761
+-0.6990 can I -0.2341
+-0.5229 can you -0.1313
+-0.3010 can’t find -0.1761
+-0.3010 car </s> -0.3010
+-0.3979 dean's office -0.1047
+-1.0000 dean's office, 0.0000
+-0.3010 do you -0.2319
+-0.3010 does Registrar's 0.0000
+-0.3010 eat my -0.2430
+-0.3010 elevator </s> -0.3010
+-0.3010 elevators </s> -0.3010
+-0.3010 evening </s> -0.3010
+-1.0792 find help -0.2499
+-1.0792 find it -0.2553
+-1.0792 find one 0.0000
+-0.6021 find the -0.2355
+-0.3010 first time -0.1249
+-0.3010 floor </s> -0.3010
+-0.3010 floor, can -0.1461
+-0.3010 food </s> -0.3010
+-1.0792 for help -0.2499
+-1.0792 for some -0.1761
+-0.7782 for the -0.2742
+-0.7782 for undergraduate 0.0000
+-0.7782 get advising -0.2218
+-0.4771 get to -0.1919
+-1.0792 go there -0.1249
+-0.3802 go to -0.1814
+-0.3010 going to -0.2929
+-0.3010 good place 0.0000
+-0.3010 guide me -0.1871
+-0.7782 have a -0.2218
+-0.7782 have an -0.1761
+-0.7782 have been 0.0000
+-0.9542 help </s> -0.3010
+-0.5563 help me -0.2083
+-0.9542 help with -0.1761
+-0.6021 here </s> -0.3010
+-0.6021 here and 0.0000
+-0.3010 how to -0.2846
+-0.3010 in this -0.1761
+-0.6532 is </s> -0.3010
+-1.2553 is a -0.2218
+-0.9542 is my -0.1761
+-0.9542 is the -0.2833
+-0.3010 is? </s> -0.3010
+-1.0000 it </s> -0.3010
+-0.5229 it is -0.1249
+-1.0000 it is? 0.0000
+-1.0792 know more 0.0000
+-0.3802 know where -0.0669
+-0.3010 leads to -0.1919
+-0.3010 like to -0.2588
+-0.3010 looking for -0.1249
+-0.3010 lost, can -0.1461
+-0.9379 me </s> -0.3010
+-1.1139 me find -0.1249
+-1.4150 me how 0.0000
+-1.4150 me there -0.1249
+-1.4150 me there? 0.0000
+-0.7160 me to -0.1919
+-0.3010 me, I -0.2906
+-0.3010 meeting with -0.1761
+-0.3010 minutes, do 0.0000
+-0.3010 more about 0.0000
+-0.3010 morning </s> -0.3010
+-0.9031 my car 0.0000
+-0.6021 my first 0.0000
+-0.9031 my food 0.0000
+-0.7782 need help -0.2499
+-0.4771 need to -0.2499
+-0.8653 office </s> -0.3010
+-1.0414 office can -0.1461
+-1.0414 office do 0.0000
+-1.0414 office for -0.1761
+-1.3424 office is -0.1919
+-1.3424 office open? 0.0000
+-0.3010 office, can -0.1461
+-0.3010 one </s> -0.3010
+-0.3010 open? </s> -0.3010
+-0.3010 park my -0.2430
+-0.3010 past 10 0.0000
+-0.3010 place to -0.2929
+-0.3010 program can -0.1461
+-0.3010 quickest way -0.1249
+-0.3010 registrar's office, 0.0000
+-0.3010 registration </s> -0.3010
+-0.4771 room </s> -0.3010
+-0.7782 room How 0.0000
+-0.3010 second floor 0.0000
+-0.3010 seminar room 0.0000
+-0.3010 sit to -0.2929
+-0.6021 some food 0.0000
+-0.6021 some help -0.2499
+-0.3010 support </s> -0.3010
+-0.3010 take me -0.1871
+-0.3010 talk to -0.2929
+-0.3010 tell me -0.2840
+-1.2218 the BEST 0.0000
+-1.6990 the Dean, 0.0000
+-1.3979 the advising -0.1249
+-1.6990 the best 0.0000
+-1.0969 the dean's 0.0000
+-1.6990 the elevator 0.0000
+-1.6990 the elevators 0.0000
+-1.6990 the office -0.2596
+-1.6990 the past 0.0000
+-1.6990 the quickest 0.0000
+-1.6990 the registrar's 0.0000
+-1.6990 the second 0.0000
+-1.2218 the seminar 0.0000
+-1.6990 the upper 0.0000
+-1.2218 the washroom 0.0000
+-0.4771 there </s> -0.3010
+-0.7782 there a -0.2218
+-0.3010 there? </s> -0.3010
+-0.6021 this building, 0.0000
+-0.6021 this way -0.2218
+-0.7782 time does 0.0000
+-0.7782 time here -0.1761
+-0.7782 time in 0.0000
+-1.7324 to an -0.1761
+-1.7324 to buy 0.0000
+-1.7324 to cafateria 0.0000
+-1.7324 to dean's -0.0792
+-1.7324 to eat 0.0000
+-1.7324 to find -0.1761
+-1.4314 to get -0.1249
+-1.0334 to go -0.0669
+-1.7324 to know -0.2632
+-1.7324 to talk 0.0000
+-0.6532 to the -0.0934
+-0.3010 undergraduate office -0.2139
+-0.3010 upper floor, 0.0000
+-0.3010 wanted to -0.2499
+-0.3010 was looking 0.0000
+-0.4771 washroom </s> -0.3010
+-0.7782 washroom is -0.1919
+-0.3010 wasn't able 0.0000
+-0.7782 way leads 0.0000
+-0.4771 way to -0.2407
+-1.0792 where can -0.2041
+-0.6021 where it -0.0792
+-0.7782 where the -0.2355
+-0.9031 with going 0.0000
+-0.9031 with registration 0.0000
+-0.6021 with the -0.2833
+-0.3010 would like 0.0000
+-1.2304 you guide 0.0000
+-0.8325 you help -0.1597
+-0.8325 you know -0.0669
+-0.9294 you take 0.0000
+-1.5315 you tell 0.0000
+
+\3-grams:
+-0.3010 10 minutes, do
+-0.3010 <s> Can you
+-0.3010 <s> Could you
+-0.3010 <s> Do you
+-0.3010 <s> Does this
+-0.3010 <s> Excuse me,
+-0.7782 <s> Good afternoon
+-0.7782 <s> Good evening
+-0.7782 <s> Good morning
+-0.9031 <s> I have
+-0.9031 <s> I need
+-1.0792 <s> I wanted
+-1.0792 <s> I was
+-1.3802 <s> I wasn't
+-1.3802 <s> I would
+-0.3010 <s> I'm lost,
+-0.3010 <s> Is there
+-0.3010 <s> It is
+-0.3010 <s> May I
+-0.3010 <s> Sorry, it
+-0.3010 <s> Take me
+-0.6021 <s> What is
+-0.6021 <s> What time
+-0.3010 <s> What’s the
+-0.4771 <s> Where can
+-0.7782 <s> Where is
+-0.3010 BEST Lab? </s>
+-0.3010 BEST office </s>
+-0.3010 BEST program can
+-0.6021 Can you guide
+-0.6021 Can you take
+-0.3010 Could you tell
+-0.3010 Dean, can you
+-0.3010 Do you know
+-0.3010 Does this way
+-0.3010 Excuse me, I
+-0.3010 Good afternoon </s>
+-0.3010 Good evening </s>
+-0.3010 Good morning </s>
+-0.3010 How can I
+-0.3010 I ask for
+-0.3010 I can’t find
+-0.6021 I find help
+-0.6021 I find one
+-0.3010 I get advising
+-0.3010 I go there
+-0.7782 I have a
+-0.7782 I have an
+-0.7782 I have been
+-0.7782 I need help
+-0.4771 I need to
+-0.3010 I park my
+-0.3010 I sit to
+-0.3010 I wanted to
+-0.3010 I was looking
+-0.3010 I wasn't able
+-0.3010 I would like
+-0.3010 I'm lost, can
+-0.3010 Is there a
+-0.3010 It is my
+-0.3010 May I ask
+-0.3010 Registrar's office open?
+-0.3010 Sorry, it is
+-0.3010 Take me to
+-0.3010 What is the
+-0.3010 What time does
+-0.3010 What’s the best
+-0.3010 Where can I
+-0.6021 Where is a
+-0.6021 Where is the
+-0.3010 a cafeteria here
+-0.3010 a good place
+-0.3010 a meeting with
+-0.3010 able to find
+-0.3010 about the BEST
+-0.3010 academic advisor, where
+-0.6021 advising office </s>
+-0.6021 advising office can
+-0.3010 advising support </s>
+-0.3010 advisor, where can
+-0.3010 an academic advisor,
+-0.3010 an appointment with
+-0.3010 and I wanted
+-0.3010 appointment with the
+-0.3010 ask for some
+-0.3010 been looking for
+-0.3010 best way to
+-0.3010 building, can you
+-0.3010 buy some food
+-0.3010 cafeteria here </s>
+-0.7782 can I find
+-1.0792 can I get
+-1.0792 can I go
+-1.0792 can I park
+-1.0792 can I sit
+-1.2553 can you guide
+-0.5563 can you help
+-0.7782 can you take
+-0.3010 can’t find the
+-0.9031 dean's office </s>
+-0.9031 dean's office can
+-0.9031 dean's office do
+-0.9031 dean's office is
+-0.3010 dean's office, can
+-0.3010 do you know
+-0.3010 does Registrar's office
+-0.3010 eat my food
+-0.3010 find help </s>
+-0.3010 find it </s>
+-0.3010 find one </s>
+-0.4771 find the dean's
+-0.7782 find the washroom
+-0.6021 first time here
+-0.6021 first time in
+-0.3010 floor, can you
+-0.3010 for help with
+-0.3010 for some help
+-0.6021 for the advising
+-0.6021 for the past
+-0.3010 for undergraduate office
+-0.3010 get advising support
+-0.3010 get to the
+-0.3010 go there </s>
+-1.0000 go to dean's
+-0.3979 go to the
+-0.3010 going to cafateria
+-0.3010 good place to
+-0.6021 guide me there
+-0.6021 guide me to
+-0.3010 have a meeting
+-0.3010 have an appointment
+-0.3010 have been looking
+-0.5229 help me </s>
+-0.6990 help me find
+-0.6021 help with going
+-0.6021 help with registration
+-0.3010 here and I
+-0.3010 how to get
+-0.3010 in this building,
+-0.3010 is a good
+-0.3010 is my first
+-0.6021 is the office
+-0.6021 is the quickest
+-0.4771 it is </s>
+-0.7782 it is my
+-0.3010 it is? </s>
+-0.3010 know more about
+-0.5229 know where it
+-0.6990 know where the
+-0.3010 leads to the
+-0.3010 like to go
+-0.7782 looking for the
+-0.4771 looking for undergraduate
+-0.3010 lost, can you
+-0.6021 me find it
+-0.6021 me find the
+-0.3010 me how to
+-0.3010 me there </s>
+-0.3010 me there? </s>
+-0.3010 me to the
+-0.3010 me, I can’t
+-0.3010 meeting with the
+-0.3010 minutes, do you
+-0.3010 more about the
+-0.3010 my car </s>
+-0.3010 my first time
+-0.3010 my food </s>
+-0.3010 need help with
+-0.6021 need to go
+-0.6021 need to talk
+-0.3010 office can you
+-0.3010 office do you
+-0.6021 office for help
+-0.6021 office for the
+-0.3010 office is </s>
+-0.3010 office open? </s>
+-0.3010 office, can you
+-0.3010 park my car
+-0.3010 past 10 minutes,
+-0.3010 place to buy
+-0.3010 program can you
+-0.3010 quickest way to
+-0.3010 registrar's office, can
+-0.3010 room How can
+-0.3010 second floor </s>
+-0.4771 seminar room </s>
+-0.7782 seminar room How
+-0.3010 sit to eat
+-0.3010 some food </s>
+-0.3010 some help </s>
+-0.9031 take me there?
+-0.4260 take me to
+-0.3010 talk to an
+-0.3010 tell me how
+-0.7782 the BEST Lab?
+-0.7782 the BEST office
+-0.7782 the BEST program
+-0.3010 the Dean, can
+-0.3010 the advising office
+-0.3010 the best way
+-0.4260 the dean's office
+-0.9031 the dean's office,
+-0.3010 the elevator </s>
+-0.3010 the elevators </s>
+-0.3010 the office for
+-0.3010 the past 10
+-0.3010 the quickest way
+-0.3010 the registrar's office,
+-0.3010 the second floor
+-0.3010 the seminar room
+-0.3010 the upper floor,
+-0.4771 the washroom </s>
+-0.7782 the washroom is
+-0.3010 there a cafeteria
+-0.3010 this building, can
+-0.3010 this way leads
+-0.3010 time does Registrar's
+-0.3010 time here and
+-0.3010 time in this
+-0.3010 to an academic
+-0.3010 to buy some
+-0.3010 to cafateria </s>
+-0.3010 to dean's office
+-0.3010 to eat my
+-0.3010 to find the
+-0.3010 to get to
+-0.3010 to go to
+-0.3010 to know more
+-0.3010 to talk to
+-1.0792 to the BEST
+-1.3802 to the advising
+-1.3802 to the dean's
+-1.3802 to the elevator
+-1.3802 to the elevators
+-1.3802 to the second
+-0.9031 to the seminar
+-1.3802 to the upper
+-1.3802 to the washroom
+-0.6021 undergraduate office do
+-0.6021 undergraduate office for
+-0.3010 upper floor, can
+-0.4771 wanted to go
+-0.7782 wanted to know
+-0.3010 was looking for
+-0.3010 washroom is </s>
+-0.3010 wasn't able to
+-0.3010 way leads to
+-0.6021 way to get
+-0.6021 way to go
+-0.3010 where can I
+-0.4771 where it is
+-0.7782 where it is?
+-0.6021 where the dean's
+-0.6021 where the washroom
+-0.3010 with going to
+-0.3010 with registration </s>
+-0.6021 with the Dean,
+-0.6021 with the registrar's
+-0.3010 would like to
+-0.3010 you guide me
+-0.3010 you help me
+-0.3010 you know where
+-0.3010 you take me
+-0.3010 you tell me
+
+\end\
+

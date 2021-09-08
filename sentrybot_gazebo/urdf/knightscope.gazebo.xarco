@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<robot name="sentrybot_sim" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="min_angle" value="-1.570796" />
+  <xacro:property name="max_angle" value="1.570796" />
+ 
+  <gazebo>
+    <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+      <commandTopic>/knightscope/cmd_vel</commandTopic>
+      <odometryTopic>/knightscope/odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryRate>50.0</odometryRate>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="link_screen">
+    <visual>
+      <plugin name="display_video_controller" filename="libgazebo_ros_video.so">
+      <!-- Topic for publishing picture: /ROBOTNAME/image_publisher/image_raw --> 
+      <!-- Topic for publishing video: /ROBOTNAME/videofile/image_raw --> 
+        <topicName>/knightscope/videofile/image_raw</topicName>
+        <height>120</height>
+        <width>160</width>
+      </plugin>
+    </visual>
+  </gazebo>
+
+  <gazebo reference="link_laser">
+    <static>true</static>
+    <sensor type="ray" name="laser"> 
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>20</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>${min_angle}</min_angle>
+            <max_angle>${max_angle}</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.20</min>
+          <max>10.0</max>
+          <resolution>0.01</resolution>
+        </range>
+      </ray>
+      <plugin name="gazebo_ros_head_laser_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/knightscope/front_laser</topicName>
+        <frameName>link_laser</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+  
+  <!-- IMU Pluggin-->
+  <gazebo reference="link_imu">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>/knightscope/imu</topicName>
+        <bodyName>base_footprint</bodyName>
+        <updateRateHZ>10.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>base_footprint</frameName>
+        <initialOrientationAsReference>false</initialOrientationAsReference>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+  
+  <!-- CAMERA PLUGIN-->
+  <gazebo reference="PTU_camera">
+    <sensor type="camera" name="camera">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>/knightscope/camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>PTU_camera</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo> 
+  
+</robot>

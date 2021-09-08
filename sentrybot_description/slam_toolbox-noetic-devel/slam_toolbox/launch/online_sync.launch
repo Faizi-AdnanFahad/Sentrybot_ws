@@ -1,0 +1,8 @@
+<launch>
+
+  <node pkg="slam_toolbox" type="sync_slam_toolbox_node" name="slam_toolbox" output="screen">
+    <!-- <remap from="odom" to="/odometry/filtered"/> -->
+    <rosparam command="load" file="$(find slam_toolbox)/config/mapper_params_online_sync.yaml" />
+  </node>
+
+</launch>

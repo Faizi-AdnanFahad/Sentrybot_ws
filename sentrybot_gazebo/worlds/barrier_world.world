@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    
+    
+    <!-- ACCESSORIES -->
+    <include>
+      <name>first_2015_trash_can</name>
+      <uri>model://first_2015_trash_can</uri>
+      <pose>3.8239 3.403029 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <name>a1</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>4 2 0 0 -0 0</pose>
+    </include>
+    
+    <include>
+      <name>a2</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>4 -2 0 0 -0 0</pose>
+    </include>
+    
+    <include>
+      <name>a3</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-6 2 0 0 -0 0</pose>
+    </include>
+    
+    <include>
+      <name>a4</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>-6 -2 0 0 -0 0</pose>
+    </include>
+    
+     <include>
+      <name>a5</name>
+      <uri>model://jersey_barrier</uri>
+      <pose>6 -5 0 0 01.5708</pose>
+    </include>
+
+    <include>
+      <name>grey_wall1</name>
+      <uri>model://grey_wall</uri>
+      <pose>5 5 0 0 01.5708</pose>
+    </include>
+
+   
+    
+    
+
+  </world>
+</sdf>
