@@ -1,7 +1,7 @@
 # Sentrybot_ws
 This repository stores all the codes and information about the Sentrybot project that was developed in Summer 2021. 
 ------------------------------------------------------------------------------------------------------------------
-This project is about a welcoming robot called Sentrybot that can navigate autonomously to take anyone approaching for direction to a commonly visited place in Bergeron building. Apart from using ROS and Slam_toolbox it uses Speech Recognition Pocketsphinx to spot the keywords from the visitors.
+This project is about a welcoming robot called Sentrybot that can navigate autonomously to take anyone approaching for direction to a commonly visited place in Bergeron building. Apart from using ROS and Slam_toolbox it uses Speech Recognition Pocketsphinx to spot the keywords from the visitors for navigation.
 ------------------------------------------------------------------------------------------------------------------
 **Instructions on How to Use the Code:**
 
