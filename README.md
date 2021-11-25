@@ -40,6 +40,14 @@ Working with Audio Classification:
 Some Screenshots of the work can be found on this link:
   - https://drive.google.com/drive/folders/1ZVcDkdwSghNCSYnVnfP8n7O6LT7Tvtxa?usp=sharing
 --------------------------------------------------------------------------------------------------------------------------------------
+Sequence of launching all the neccessary files:
+  1. Launching the Gazebo simulator: roslaunch sentrybot_gazebo sentrybot_sherman.launch
+  2. Launching the rviz sumulator: roslaunch sentrybot_description sentrybot_rviz.launch 
+  3. Controlling the robot using keyboard: rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/sentrybot/cmd_vel
+  4. Launching the slam_toolbox maping file (For mapping & navigaiton): roslaunch slam_toolbox online_sync.launch 
+  5. Launching the language provided the exact path and lunching the speech recognizer (pocketsphinx): oslaunch pocketsphinx kws.launch dict:=/home/ubuntu/catkin_ws/src/pocketsphinx/demo/voice_cmd.dic kws:=/home/ubuntu/catkin_ws/src/pocketsphinx/demo/voice_cmd.kwlist hmm:=/home/ubuntu/catkin_ws/src/pocketsphinx/demo/cmusphinx-en-us-8khz-5.2
+  6. Launching the Python script to get the speech and navigate to the goal based on the speech: rosrun autonomous_nav set_goal_custom.py 
+--------------------------------------------------------------------------------------------------------------------------------------
 The navigation and speech_recognition were developed and implemented by Adnan Fahad Faizi, a Computer Science student at Lassonde School of Engineering in LURA summer program under the supervision of Prof. Michael Jenkin.
 --------------------------------------------------------------------------------------------------------------------------------------
 **Abstract:**
