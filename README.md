@@ -52,7 +52,7 @@ The navigation and speech_recognition were developed and implemented by Adnan Fa
 --------------------------------------------------------------------------------------------------------------------------------------
 ***Home Page***
 
-<img src="C:\Users\Fahad - XPS\Desktop\github\Screenshot from 2021-08-25 13-28-53.png" width="150" height="300" />
+<img src="Images_readme/Sherman_View_2.png" width="150"/>
 
 --------------------------------------------------------------------------------------------------------------------------------------
 **Abstract:**
