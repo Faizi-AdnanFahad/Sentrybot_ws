@@ -50,9 +50,16 @@ Sequence of launching all the neccessary files:
 --------------------------------------------------------------------------------------------------------------------------------------
 The navigation and speech_recognition were developed and implemented by Adnan Fahad Faizi, a Computer Science student at Lassonde School of Engineering in LURA summer program under the supervision of Prof. Michael Jenkin.
 --------------------------------------------------------------------------------------------------------------------------------------
-***Home Page***
+Here are some screenshots and videos of the work:
 
-<img src="Images_readme/Sherman_View_2.png" width="150"/>
+  ***Sherman Building 3D Gazebo Simulator***
+  <img src="Images_readme/Sherman_View_2.png"/>
+  
+ 
+  
+  ***Costmap Bergeron Building RVIZ Simulator***
+  <img src="Images_readme/Costmap_Bergeron.jpeg"/>
+  
 
 --------------------------------------------------------------------------------------------------------------------------------------
 **Abstract:**
