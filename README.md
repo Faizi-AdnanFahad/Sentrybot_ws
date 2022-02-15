@@ -50,6 +50,11 @@ Sequence of launching all the neccessary files:
 --------------------------------------------------------------------------------------------------------------------------------------
 The navigation and speech_recognition were developed and implemented by Adnan Fahad Faizi, a Computer Science student at Lassonde School of Engineering in LURA summer program under the supervision of Prof. Michael Jenkin.
 --------------------------------------------------------------------------------------------------------------------------------------
+***Home Page***
+
+<img src="C:\Users\Fahad - XPS\Desktop\github\Screenshot from 2021-08-25 13-28-53.png" width="150" height="300" />
+
+--------------------------------------------------------------------------------------------------------------------------------------
 **Abstract:**
   For an autonomous agent to be able to perform tasks in a given environment it must be able to navigate safely and accurately in a known or unknown environment by avoiding obstacles and reaching a given goal. The Sentrybot robot utilizes the Robot Operating System (ROS) as a middleware to provide robot control. Sentrybot can be controlled via keyboard or joystick teleoperation, but for autonomous navigation, it requires four components: a map of the environment, its current location concerning the map (the robot’s pose), and a route to take that avoids obstacles. My work uses, an open-source ROS package that uses laser scan data coming from the LIDAR attached to the robot and the transformation of the odometry and map frames, to map the environment. For localization, Adaptive Monte Carlo Localization (AMCL) is used to estimate the robot's pose. Given a map and the robot’s location, the robot can use the specific destination goals and safely follow a path to the given goals on the map. During travel, the robot can avoids any dynamic objects and creates alternative paths for reaching the goal. All testing to date has used the Gazebo simulator and we are using a model of the ground floor of the Bergeron centre with identified destinations for the robot to help guide visitors seeking help while securing the space. We are aiming to be able to test the robot in a real-world environment later this summer.
   
