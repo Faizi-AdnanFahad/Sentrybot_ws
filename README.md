@@ -60,6 +60,9 @@ Here are some screenshots and videos of the work:
   ***Costmap Bergeron Building RVIZ Simulator***
   <img src="Images_readme/Costmap_Bergeron.jpeg"/>
   
+  ![SentryBot takign commands to navigate autonomously from one location to another. ](https://user-images.githubusercontent.com/67298880/154120624-6ed5069f-8b1d-4bb8-88a6-feb2d27b9376.mp4)
+
+
 
 --------------------------------------------------------------------------------------------------------------------------------------
 **Abstract:**
