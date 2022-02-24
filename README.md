@@ -55,6 +55,10 @@ Here are some screenshots and videos of the work:
   ***Sherman Building 3D Gazebo Simulator***
   <img src="Images_readme/Sherman_View_2.png"/>
   
+  
+  
+  ***Bergeron Building 3D Gazebo Simulator***
+  <img src="Images_readme/bergeron_world.png"/>
  
   
   ***Costmap Bergeron Building RVIZ Simulator***
